@@ -26,8 +26,8 @@ var getOnlyHandler := Allow(http.MethodGet)(http.HandlerFunc(func(w http.Respons
 Wrap a handler using `Disallow(...string)`, disallowing the given methods:
 
 ```go
-var noDeleteHandler := Disallow(http.MethodPut, http.MethodPatch, http.MethodDelete)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Thanks for not changing!"))
+var noUpdateHandler := Disallow(http.MethodPut, http.MethodPatch)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Thanks for not updating!"))
 }))
 ```
 
